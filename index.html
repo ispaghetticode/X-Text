@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-Text by Zack</title>
+    <style>
+        ::selection {
+            background-color: hsl(203, 89%, 53%);
+            color: yellow;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            line-height: 100%;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 2em;
+            background-color: hsl(0, 0%, 0%);
+            color: hsl(0, 0%, 100%);
+        }
+
+        header {
+            order: -1;
+            padding: 1em;
+            font-size: 5rem;
+        }
+
+        footer {
+            padding: 1em;
+            text-align: center;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+        }
+
+        main {
+            padding: 1em;
+            text-align: center;
+            flex: 1 0 auto;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: hsl(16, 100%, 50%);
+        }
+
+        textarea {
+            font-size: inherit;
+            background-color: inherit;
+            color: inherit;
+            outline: none;
+            border: 0.2rem solid hsl(0, 0%, 100%);
+            padding: 1rem;
+            width: 90%;
+            font-family: inherit;
+        }
+
+        input,
+        button {
+            font-size: inherit;
+            border-color: hsl(0, 0%, 100%);
+            background-color: hsl(0, 0%, 0%);
+            cursor: pointer;
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>𝕏-𝕋𝕖𝕩𝕥</header>
+    <div class="main-container">
+        <main>
+            <div class="editing">
+                <p id="preview">𝔼𝕟𝕥𝕖𝕣 𝕠𝕣 𝕡𝕒𝕤𝕥𝕖 𝕪𝕠𝕦𝕣 𝕥𝕖𝕩𝕥 𝕙𝕖𝕣𝕖, 𝕠𝕣 𝕤𝕚𝕞𝕡𝕝𝕪 𝕕𝕣𝕒𝕘 𝕒𝕟𝕕
+                    𝕕𝕣𝕠𝕡 𝕚𝕥.</p>
+                <textarea id="userInput">Enter or paste your text here, or simply drag and drop it.</textarea>
+
+            </div>
+        </main>
+    </div>
+    <footer class="item3">
+        <a target="_blank" href="https://www.x.com/ispaghetticode">𝔹𝕪 ℤ𝕒𝕔𝕜 - @𝕚𝕤𝕡𝕒𝕘𝕙𝕖𝕥𝕥𝕚𝕔𝕠𝕕𝕖</a>
+    </footer>
+
+
+
+    <script>
+
+        function xTextify(text) {
+            const xTextMap = {
+                'a': '𝕒', 'b': '𝕓', 'c': '𝕔', 'd': '𝕕', 'e': '𝕖', 'f': '𝕗', 'g': '𝕘', 'h': '𝕙',
+                'i': '𝕚', 'j': '𝕛', 'k': '𝕜', 'l': '𝕝', 'm': '𝕞', 'n': '𝕟', 'o': '𝕠', 'p': '𝕡',
+                'q': '𝕢', 'r': '𝕣', 's': '𝕤', 't': '𝕥', 'u': '𝕦', 'v': '𝕧', 'w': '𝕨', 'x': '𝕩',
+                'y': '𝕪', 'z': '𝕫',
+                'A': '𝔸', 'B': '𝔹', 'C': 'ℂ', 'D': '𝔻', 'E': '𝔼', 'F': '𝔽', 'G': '𝔾', 'H': 'ℍ',
+                'I': '𝕀', 'J': '𝕁', 'K': '𝕂', 'L': '𝕃', 'M': '𝕄', 'N': 'ℕ', 'O': '𝕆', 'P': 'ℙ',
+                'Q': 'ℚ', 'R': 'ℝ', 'S': '𝕊', 'T': '𝕋', 'U': '𝕌', 'V': '𝕍', 'W': '𝕎', 'X': '𝕏',
+                'Y': '𝕐', 'Z': 'ℤ',
+                '-': '-',
+                '0': '𝟘', '1': '𝟙', '2': '𝟚', '3': '𝟛', '4': '𝟜', '5': '𝟝', '6': '𝟞', '7': '𝟟',
+                '8': '𝟠', '9': '𝟡'
+            };
+
+
+
+            let xText = '';
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                const transformedChar = xTextMap[char] || char;
+                xText += transformedChar;
+            }
+
+            return xText;
+        }
+        const userInput = document.getElementById('userInput');
+        const preview = document.getElementById('preview');
+        userInput.addEventListener('input', () => {
+            preview.innerText = xTextify(userInput.value);
+        });
+
+    </script>
+</body>
+
+</html>
